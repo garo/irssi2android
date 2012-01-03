@@ -49,8 +49,7 @@ my $last_gui_action = time();
     name        => "irssi2android",
     description => "Sends notifonotifications when user has been idle long enough (iOS AND ANDROID)",
     license     => "GPLv2",
-    url         => "http://www.juhonkoti.net",
-    changed     => "Mon Mar 17 23:59:32 CET 2011",
+    url         => "https://github.com/garo/irssi2android"
 );
 
 # Configuration settings and default values.
@@ -102,6 +101,8 @@ sub send_noti {
 	send_nma($title, $text);
 	$sent = 1;
     }
+
+    # Add your own api gateways here
 
     if ($sent == 0) {
 	Irssi::print("Notification $title : $text not posted, because no api key was defined for any supported api.");

@@ -15,5 +15,24 @@ Installation
 3) Set your NMA apikey: /set irssi2android_nma_api 123456789abcdef
 4) Send a test message: /irssi2android Hello, World!
 
+Commands:
+=========
+/set irssi2android_nma_api	    API_KEY                 (Default NULL)
+/set irssi2android_general_hilight on/off           (Default OFF)
+/set irssi2androd_idletime (idle time in minutes) (Default 60)
+
+/irssi2android <message, sends a test message thru the api>
+
+"General hilight" basically referrs to ALL the hilights you have
+added manually in irssi, if many, it can get really bloated if
+turned on. Default is Off.
+
+You will need the following packages:
+LWP::UserAgent (You can install this using cpan -i LWP::UserAgent)
+Crypt::SSLeay  (You can install this using cpan -i Crypt::SSLeay)
+ 
+Or if you're using Debian GNU/Linux:
+apt-get update;apt-get install libwww-perl libcrypt-ssleay-perl
+
 
 
