@@ -17,9 +17,9 @@ Installation
 
 Commands:
 =========
-/set irssi2android_nma_api	    API_KEY                 (Default NULL)
-/set irssi2android_general_hilight on/off           (Default OFF)
-/set irssi2androd_idletime (idle time in minutes) (Default 60)
+/set irssi2android_nma_api	   <API_KEY>              (Default NULL)
+/set irssi2android_general_hilight <on/off>               (Default OFF)
+/set irssi2androd_idletime         <idle time in minutes> (Default 60)
 
 /irssi2android <message, sends a test message thru the api>
 
