@@ -34,5 +34,8 @@ Crypt::SSLeay  (You can install this using cpan -i Crypt::SSLeay)
 Or if you're using Debian GNU/Linux:
 apt-get update;apt-get install libwww-perl libcrypt-ssleay-perl
 
+Bugs & Missing Features:
+========================
 
+If you receive a private message just after you have closed your screen and left to get fresh air, you won't get a notification because the idle time hasn't yet passed. The script could store these messages in a buffer and send a notification to your phone when the required idle time has passed.
 
