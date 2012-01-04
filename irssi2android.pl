@@ -3,7 +3,7 @@ use warnings;
 
 #####################################################################
 # This script sends notifications to your
-# iPhone using the NMA (Notify my Android) API when you have
+# Android using the NMA (Notify my Android) API when you have
 # been idling long enough.
 #
 # This script is based on irssinotifo by Caesar 'sniker' Ahlenhed.
