@@ -143,7 +143,7 @@ sub key_pressed {
 }
 
 sub is_idle {
-    if ($last_gui_action + Irssi::settings_get_int("irssi2androd_idletime") * 60 < time()) {
+    if ($last_gui_action + Irssi::settings_get_int("irssi2android_idletime") * 60 < time()) {
 	return 1;
     } 
     return 0;
