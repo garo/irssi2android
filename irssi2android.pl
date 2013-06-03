@@ -12,7 +12,7 @@ use warnings;
 # Commands:
 # /set irssi2android_nma_api	    API_KEY                 (Default NULL)
 # /set irssi2android_general_hilight on/off           (Default OFF)
-# /set irssi2androd_idletime (idle time in minutes) (Default 60)
+# /set irssi2android_idletime (idle time in minutes) (Default 30)
 #
 # /irssi2android <message, sends a test message thru the api>
 #
@@ -55,7 +55,7 @@ my $last_gui_action = time();
 # Configuration settings and default values.
 Irssi::settings_add_bool("irssi2android", "irssi2android_general_hilight", 0);
 Irssi::settings_add_str("irssi2android", "irssi2android_nma_api", "");
-Irssi::settings_add_int("irssi2android", "irssi2androd_idletime", 60);
+Irssi::settings_add_int("irssi2android", "irssi2android_idletime", 30);
 
 sub send_nma {
     my ($title, $head, $text) = @_;
@@ -143,7 +143,7 @@ sub key_pressed {
 }
 
 sub is_idle {
-    if ($last_gui_action + Irssi::settings_get_int("irssi2androd_idletime") * 60 < time()) {
+    if ($last_gui_action + Irssi::settings_get_int("irssi2android_idletime") * 60 < time()) {
 	return 1;
     } 
     return 0;

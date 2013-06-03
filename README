@@ -3,7 +3,7 @@ Irssi2Android - send notifications from irssi to your Android phone
 
 This simple script allows you to get notifications about your private messages from irssi to your Android phone. Currently this supports only the Notify My Android (www.notifymyandroid.com) api. The NMA application costs currently around 3.5 eur.
 
-The script sends events only when you have not done anything (pressed any buttons) for a predefined idle time (Default 60, tune with /set irssi2android_idletime <minutes>). In my opinion this is much better than depending on your /away status.
+The script sends events only when you have not done anything (pressed any buttons) for a predefined idle time (Default 30, tune with /set irssi2android_idletime <minutes>). In my opinion this is much better than depending on your /away status.
 
 I'd suggest that you also use the excellent Irssi Connectbot: https://market.android.com/details?id=org.woltage.irssiconnectbot
 
@@ -17,9 +17,9 @@ Installation
 
 Commands:
 =========
-/set irssi2android_nma_api	   <API_KEY>              (Default NULL)
+/set irssi2android_nma_api         <API_KEY>              (Default NULL)
 /set irssi2android_general_hilight <on/off>               (Default OFF)
-/set irssi2androd_idletime         <idle time in minutes> (Default 60)
+/set irssi2android_idletime        <idle time in minutes> (Default 30)
 
 /irssi2android <message, sends a test message thru the api>
 
