@@ -58,12 +58,12 @@ Irssi::settings_add_str("irssi2android", "irssi2android_nma_api", "");
 Irssi::settings_add_int("irssi2android", "irssi2androd_idletime", 60);
 
 sub send_nma {
-    my ($title, $text) = @_;
+    my ($title, $head, $text) = @_;
     my %options = ();
     $options{'application'} ||= "irc: " . $title;
     $options{'priority'} ||= 0;
     $options{'apikey'} = Irssi::settings_get_str("irssi2android_nma_api");
-    $options{'event'} =  $text;
+    $options{'event'} =  $head;
     $options{'notification'} = $text;
 
     # Generate our HTTP request.
@@ -94,11 +94,11 @@ sub send_nma {
 }
 
 sub send_noti {
-    my ($title, $text) = @_;
+    my ($title, $head, $text) = @_;
 
     my $sent = 0;
     if (Irssi::settings_get_str("irssi2android_nma_api") ne "") {
-	send_nma($title, $text);
+	send_nma($title, $head, $text);
 	$sent = 1;
     }
 
@@ -114,14 +114,14 @@ sub pubmsg {
     my ($server, $data, $nick) = @_;
 
     if($server->{usermode_away} == 1 && $data =~ /$server->{nick}/i){
-        send_noti("Hilighted", $nick . ': ' . $data);
+        send_noti("Hilighted", $nick,  $data);
     }
 }
 
 sub privmsg {
     my ($server, $data, $nick) = @_;
     if(is_idle() == 1){
-        send_noti("PM", $nick . ': ' . $data);
+        send_noti("PM", $nick, $data);
     }
 }
 
@@ -132,7 +132,7 @@ sub genhilight {
     if($dest->{level} & MSGLEVEL_HILIGHT) {
         if(is_idle() == 1){
             if(Irssi::settings_get_bool("irssi2android_general_hilight")){
-                send_noti("General Hilight", $stripped);
+                send_noti("General Hilight", "hilight", $stripped);
             }
         }
     }
@@ -151,7 +151,17 @@ sub is_idle {
 
 sub cmd_irssi2android {
 	my ($arg, $server, $witem) = @_;
-	send_noti("test", $arg);
+	if ($arg =~ /^"(.+?)"\s(.+)/) {
+	    send_noti("Manual message", $1, $2);
+	    Irssi::print("Sent: $1, $2");
+	} elsif ($arg =~ /^(.+?)\s(.+)/) {
+	    send_noti("Manual message", $1, $2);
+	    Irssi::print("Sent: $1, $2");
+	} else {
+	    send_noti("Manual message", "manual", $arg);
+	    Irssi::print("Sent: manual, " . $arg);
+	}
+	
 }
 
 Irssi::signal_add_last('message public', 'pubmsg');
