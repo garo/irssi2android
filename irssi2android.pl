@@ -44,12 +44,12 @@ $VERSION = "0.2";
 my $last_gui_action = time();
 
 %IRSSI = (
-    authors     => "Juho Garo Makinen",
-    contact     => "juho.makinen\@gmail.com",
+    authors     => "Juho Garo Makinen, Jim MacKenzie",
+    contact     => "juho.makinen\@gmail.com, protojazz@gmail.com",
     name        => "irssi2android",
-    description => "Sends notifonotifications when user has been idle long enough (iOS AND ANDROID)",
+    description => "Sends notifonotifications when user has been idle long enough (ANDROID)",
     license     => "GPLv2",
-    url         => "https://github.com/garo/irssi2android"
+    url         => "https://github.com/ProtoJazz/irssi2android"
 );
 
 # Configuration settings and default values.
@@ -74,7 +74,7 @@ sub send_nma {
 
     my $developerKeyString = "";
  
-    $requestURL = sprintf("https://nma.usk.bz/publicapi/notify?apikey=%s&application=%s&event=%s&description=%s&priority=%d%s",
+    $requestURL = sprintf("https://www.notifymyandroid.com/publicapi/notify?apikey=%s&application=%s&event=%s&description=%s&priority=%d%s",
 			  $options{'apikey'},
 			  $options{'application'},
 			  $options{'event'},
