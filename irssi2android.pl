@@ -44,12 +44,12 @@ $VERSION = "0.2";
 my $last_gui_action = time();
 
 %IRSSI = (
-    authors     => "Juho Garo Makinen, Jim MacKenzie",
-    contact     => "juho.makinen\@gmail.com, protojazz@gmail.com",
+    authors     => "Juho Garo Makinen",
+    contact     => "juho.makinen\@gmail.com",
     name        => "irssi2android",
     description => "Sends notifonotifications when user has been idle long enough (ANDROID)",
     license     => "GPLv2",
-    url         => "https://github.com/ProtoJazz/irssi2android"
+    url         => "https://github.com/Garo/irssi2android"
 );
 
 # Configuration settings and default values.
